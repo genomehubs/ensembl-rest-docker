@@ -70,6 +70,7 @@ cpanm Bio::DB::HTS
 wget -O /home/ubuntu/.profile https://raw.githubusercontent.com/andrewyatz/vagrant_machines/master/ensembl/rest/settings/profile
 chown -R $user:$user $home/.profile $home/src $home/programs
 perl -i -plne 's/use Catalyst qw\//use Catalyst qw\/\n  -Debug\nSession::Store::FastMmap/' $home/src/ensembl-rest/lib/EnsEMBL/REST.pm
+perl    -plne 's|reg.pm|/home/ubuntu/src/ensembl-rest/reg.pm|' /home/ubuntu/src/ensembl-rest/ensembl_rest.conf.default > /home/ubuntu/src/ensembl-rest/ensembl_rest.conf
 ```
 
 Test installation:
