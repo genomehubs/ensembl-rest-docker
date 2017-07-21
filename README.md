@@ -8,6 +8,10 @@ Checkout this git repository:
 git clone https://github.com/genomehubs/ensembl-rest-docker.git
 cd ensembl-rest-docker
 ```
+Run generate_reg.pm in this folder using a genomehubs ensembl conf [setup.ini](https://github.com/genomehubs/template/blob/master/ensembl/conf/setup.ini) file to create reg.pm (for more info on how to use setup.ini, see the [GenomeHubs documentation](https://genomehubs.gitbooks.io/genomehubs/content/quick-start/ensembl-site.html):
+```
+./generate_reg.pm /path/to/setup.ini
+```
 
 Run docker container, mounting the reg.pm and ensembl_rest.conf files in this repo:
 ```
