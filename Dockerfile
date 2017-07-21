@@ -64,9 +64,9 @@ RUN perl -i -plne 's/use Catalyst qw\//use Catalyst qw\/\n  -Debug\nSession::Sto
 RUN adduser --disabled-password --gecos '' $user
 RUN chown -R $user:$user $home
 
-EXPOSE 3000
+EXPOSE 80
 USER ubuntu
-env PATH $HOME/programs/ensembl-git-tools/bin:$PATH
+env PATH /home/ubuntu/programs/ensembl-git-tools/bin:$PATH
 
 # Set up PERL5LIB
 ENV PERL5LIB $PERL5LIB:/home/ubuntu/src/bioperl-1.6.9
@@ -79,4 +79,5 @@ ENV PERL5LIB $PERL5LIB:/home/ubuntu/src/ensembl-io/modules
 ENV PERL5LIB=$PERL5LIB:/home/ubuntu/src/tabix-master/perl/blib/lib:/home/ubuntu/src/tabix-master/perl/blib/arch
 ENV LD_LIBRARY_PATH=/home/ubuntu/src/tabix-master/
 
-CMD ["/home/ubuntu/src/ensembl-rest/script/ensembl_rest_server.pl"]
+USER root
+CMD ["/home/ubuntu/src/ensembl-rest/script/ensembl_rest_server.pl","-p","80"]
